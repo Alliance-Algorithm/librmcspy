@@ -1,0 +1,13 @@
+.vscode/
+.cache/
+
+build/
+dist/
+_build/
+_generate/
+*.so
+*.py[cod]
+*.egg-info
+*env*
+
+compile_commands.json
