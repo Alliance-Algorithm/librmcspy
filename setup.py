@@ -153,7 +153,7 @@ with open("README.en-us.md", "r", encoding="utf-8") as file:
 # logic and declaration, and simpler if you include description/version in a file.
 setup(
     name="librmcspy",
-    version="0.0.1",
+    version="0.0.2",
     author="Zihan Qin",
     author_email="zihanqin2048@gmail.com",
     description="A portable python library which implements the core functionality of RMCS.",
