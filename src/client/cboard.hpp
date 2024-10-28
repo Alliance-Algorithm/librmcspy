@@ -105,12 +105,15 @@ private:
     std::atomic<LinkedCallStruct*> linked_call_struct_{nullptr};
 };
 
-class CBoard : librmcs::client::CBoard {
+class CBoard final : librmcs::client::CBoard {
 public:
     explicit CBoard(uint16_t usb_pid)
         : librmcs::client::CBoard(usb_pid)
-        , event_thread_([this]() { handle_events(); }) {
-        event_thread_.detach();
+        , event_thread_([this]() { handle_events(); }) {}
+
+    ~CBoard() {
+        stop_handling_events();
+        event_thread_.join();
     }
 
     py::function can1_receive(const py::function& callable) {
